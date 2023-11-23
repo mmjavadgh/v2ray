@@ -4,7 +4,7 @@ $telegramBotToken = '6520725138:AAF9YpmlJ0ypzFyZwaNr0hf_60xh9RW_kFc';
 $channelUsername = 'TVCminer';
 $githubUsername = 'mmjavadgh';
 $githubRepo = 'v2ray';
-$githubToken = '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';
+$githubToken = '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';
 
 // تابع برای دریافت لینک‌ها از پست‌های کانال تلگرام
 function getV2rayLinks($channelUsername, $telegramBotToken) {

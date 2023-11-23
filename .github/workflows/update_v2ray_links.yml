@@ -1,0 +1,33 @@
+name: Update v2ray links
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # هر نیم ساعت یکبار
+
+jobs:
+  update_links:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      - name: Install Composer
+        run: |
+          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+          php composer-setup.php --install-dir=bin --filename=composer
+          php -r "unlink('composer-setup.php');"
+
+      - name: Install Dependencies
+        run: composer install
+
+      - name: Run PHP Script
+        run: php update_v2ray_links.php
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

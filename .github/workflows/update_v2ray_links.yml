@@ -30,4 +30,4 @@ jobs:
         run: php update_v2ray_links.php
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
+          GITH_TOKEN: ${{ secrets.GIT_TOKEN }}

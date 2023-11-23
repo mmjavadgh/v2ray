@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '*/30 * * * *'  # هر نیم ساعت یکبار
+    - cron: '*/1 * * * *'  # هر نیم ساعت یکبار
 
 jobs:
   update_links:

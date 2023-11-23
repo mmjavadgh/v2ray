@@ -1,0 +1,22 @@
+name: Create and Upload File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create_and_upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Directory and File
+        run: |
+          mkdir -p /home/runner/work/v2ray/v2ray
+          run: echo '{"require": {"vendor/package": "1.0.0"}}' > /home/runner/work/v2ray/composer.json
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: /home/runner/work/v2ray/v2ray

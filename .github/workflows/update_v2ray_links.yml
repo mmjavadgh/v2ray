@@ -15,18 +15,6 @@ jobs:
         with:
           php-version: '8.0'
 
-      - name: Create Composer.json
-        run: echo '{"require": {"vendor/package": "1.0.0"}}' > /home/runner/work/v2ray/v2ray/composer.json
-
-      - name: Install Composer
-        run: |
-          php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-          php composer-setup.php --install-dir=/usr/local/bin --filename=composer
-          php -r "unlink('composer-setup.php');"
-
-      - name: Install Dependencies
-        run: composer install
-
       - name: Run PHP Script
         run: php update_v2ray_links.php
         env:
